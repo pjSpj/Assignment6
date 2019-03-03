@@ -1,6 +1,8 @@
 let animals = [];
-function displayAniamlGif(){
-let animal = $(this).attr('data-animal');
+
+function displayAniamlGif(animal){
+// let animal = $(this).attr('data-animal');
+console.log($('.animal'));
 let queryURL = 'https://api.giphy.com/v1/gifs/search?q='+ animal + '&api_key=FSNC6NbUkNUCdOs3dM55vf7lCt1MBbDa&limit=10&rating=pg-13';
 
 $.ajax({
@@ -25,9 +27,15 @@ function creatButtons(){
     for (var i =0; i<animals.length;i++){
         let a = $('<button>');
         a.addClass('animal');
-        a.attr('data-name',animals[i]);
+        a.attr('data-animal',animals[i]);
         a.text(animals[i]);
         $('#buttons_view').append(a);
+        a.click(function(){
+            console.log(this);
+            var animal = this.dataset.animal;
+            console.log(animal);
+            displayAniamlGif(animal);
+        });
     }
 }
 
@@ -39,6 +47,10 @@ $('#add_animal').on('click', function(event){
     creatButtons();
 });
 
-$("#buttons_view").click('.animal',displayAniamlGif);
+
 console.log(displayAniamlGif)
 creatButtons();
+// $("#buttons_view").click('.animal',function(){
+//     console.log(this)
+//     displayAniamlGif();
+// });
