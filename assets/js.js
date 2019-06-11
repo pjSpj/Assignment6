@@ -3,7 +3,7 @@ let animals = [];
 function displayAniamlGif(animal){
 // let animal = $(this).attr('data-animal');
 console.log($('.animal'));
-let queryURL = 'https://api.giphy.com/v1/gifs/search?q='+ animal + '&api_key=FSNC6NbUkNUCdOs3dM55vf7lCt1MBbDa&limit=10&rating=pg-13';
+let queryURL = 'https://api.giphy.com/v1/gifs/search?q='+ animal + '&api_key=3';
 
 $.ajax({
     url:queryURL,
